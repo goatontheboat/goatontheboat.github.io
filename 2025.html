@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>SYSTEM_LOG_2025</title>
+    <style>
+        body { background: #000; color: #0f0; font-family: 'Courier New', monospace; padding: 30px; }
+        .header { border-bottom: 2px solid #0f0; padding-bottom: 20px; margin-bottom: 30px; }
+        .grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .card { border: 1px solid #333; padding: 20px; background: #0a0a0a; }
+        h2 { font-size: 0.9rem; color: #fff; margin-top: 0; }
+        .data-value { font-size: 2rem; font-weight: bold; margin-top: 10px; }
+        .back-btn { color: #fff; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="back-btn"><< BACK TO MAIN</a>
+        <h1>REPORT_YEAR: 2025</h1>
+        <p>STATUS: DATA_CONSOLIDATED (통합 완료)</p>
+    </div>
+
+    <div class="grid-container">
+        <div class="card" style="grid-column: span 2;">
+            <h2>TOTAL IMPACT (STREAMING + VIEWS)</h2>
+            <div class="data-value">228,058</div>
+            <p>※ 애플/스포티파이/유튜브 통합 도달 수치</p>
+        </div>
+        
+        <div class="card">
+            <h2>PLATFORMS</h2>
+            <div class="data-box">
+                Apple Music: 0<br>
+                Spotify: 58<br>
+                YouTube (Total): 228,000
+            </div>
+        </div>
+        <div class="card">
+            <h2>SYSTEM NOTE</h2>
+            <div class="data-box">통합 시스템 가동: 2026.03.07<br>데이터 소스: 유통사 및 관리 페이지</div>
+        </div>
+    </div>
+</body>
+</html>
