@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>GOATONTHEBOAT_SYSTEM</title>
+    <style>
+        /* 배경과 폰트 설정: 아주 차갑고 기계적인 느낌 */
+        body {
+            background-color: #000; /* 검은 배경 */
+            color: #fff;            /* 흰색 글자 */
+            font-family: 'Courier New', Courier, monospace; /* 시스템 폰트 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* 연도 텍스트 스타일: 크고 압도적으로 */
+        .year-link {
+            font-size: 8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #444; /* 평소엔 어두운 회색 */
+            transition: all 0.3s ease;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+
+        /* 마우스를 올렸을 때: 활성화되는 데이터 느낌 */
+        .year-link:hover {
+            color: #fff; /* 밝은 흰색으로 변화 */
+            text-shadow: 0 0 20px #fff; /* 빛나는 효과 */
+            transform: scale(1.1);
+        }
+
+        /* 하단 시스템 상태 메시지 */
+        .status-bar {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.8rem;
+            color: #0f0; /* 초록색 터미널 컬러 */
+        }
+    </style>
+</head>
+<body>
+
+    <a href="2025.html" class="year-link">2025.</a>
+    <a href="2026.html" class="year-link">2026.</a>
+
+    <div class="status-bar">
+        SYSTEM STATUS: ONLINE | DATA_STREAMING... | READY TO PRESENT
+    </div>
+
+</body>
+</html>

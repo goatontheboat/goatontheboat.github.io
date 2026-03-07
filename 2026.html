@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>SYSTEM_LOG_2026</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #0f0; /* 초록색 터미널 감성 */
+            font-family: 'Courier New', monospace;
+            padding: 50px;
+            line-height: 1.6;
+        }
+
+        .header {
+            border-bottom: 2px solid #0f0;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 { font-size: 2rem; margin: 0; }
+        .back-btn { color: #fff; text-decoration: none; font-size: 0.9rem; }
+        .back-btn:hover { text-decoration: underline; }
+
+        /* 데이터 테이블 스타일 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th { background-color: #111; color: #fff; }
+        tr:hover { background-color: #111; }
+
+        .status-tag {
+            background-color: #0f0;
+            color: #000;
+            padding: 2px 6px;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="index.html" class="back-btn"><< BACK TO MAIN</a>
+        <h1>REPORT_YEAR: 2026</h1>
+        <p>STATUS: SYSTEM ACTIVE / RE-PROCESSING DATA...</p>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>DATE</th>
+                <th>TRACK_ID</th>
+                <th>ACTIVITY_TYPE</th>
+                <th>REACH_DATA</th>
+                <th>STATUS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2026.03.07</td>
+                <td>26030701</td>
+                <td>YouTube Upload & Ads</td>
+                <td>Reach: 1,240 / Click: 45</td>
+                <td><span class="status-tag">LIVE</span></td>
+            </tr>
+            <tr>
+                <td>2026.03.02</td>
+                <td>26030201</td>
+                <td>Direct Sales (Networking)</td>
+                <td>Response: Pending</td>
+                <td><span class="status-tag">PROCESSING</span></td>
+            </tr>
+            </tbody>
+    </table>
+
+</body>
+</html>
