@@ -2,57 +2,50 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>GOATONTHEBOAT_SYSTEM</title>
+    <title>goat on the boat</title>
     <style>
-        /* 배경과 폰트 설정: 아주 차갑고 기계적인 느낌 */
-        body {
-            background-color: #000; /* 검은 배경 */
-            color: #fff;            /* 흰색 글자 */
-            font-family: 'Courier New', Courier, monospace; /* 시스템 폰트 */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
+        body { margin: 0; background: #fff; display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 50px 0; }
+        .container { display: flex; flex-direction: column; align-items: center; }
+        
+        /* 링크 스타일: 밑줄 제거 및 블록 설정 */
+        a { text-decoration: none; display: block; margin: 10px 0; }
+
+        .row { 
+            position: relative;
+            transition: transform 0.1s ease-out; 
+            mix-blend-mode: multiply; 
         }
 
-        /* 연도 텍스트 스타일: 크고 압도적으로 */
-        .year-link {
-            font-size: 8rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: #444; /* 평소엔 어두운 회색 */
-            transition: all 0.3s ease;
-            margin: 20px 0;
-            cursor: pointer;
+        .text-line { 
+            font-family: 'Times New Roman', serif; 
+            font-size: 6vw; font-weight: 900; line-height: 0.7; 
+            text-shadow: 2px 0 #FF6B6B, -2px 0 #4ECDC4;
+            white-space: nowrap;
         }
 
-        /* 마우스를 올렸을 때: 활성화되는 데이터 느낌 */
-        .year-link:hover {
-            color: #fff; /* 밝은 흰색으로 변화 */
-            text-shadow: 0 0 20px #fff; /* 빛나는 효과 */
-            transform: scale(1.1);
-        }
+        /* 버튼 효과 */
+        a:hover .row { transform: translateY(-5px); opacity: 0.8; }
+        a:active .row { transform: translateY(2px); opacity: 1; }
 
-        /* 하단 시스템 상태 메시지 */
-        .status-bar {
-            position: absolute;
-            bottom: 20px;
-            font-size: 0.8rem;
-            color: #0f0; /* 초록색 터미널 컬러 */
-        }
+        .c1 { color: #FF6B6B; } .c2 { color: #4ECDC4; } 
+        .c3 { color: #FFE66D; } .c4 { color: #FF9F1C; } 
+        .c5 { color: #2D9CDB; } .c6 { color: #BB6BD9; } 
+        .c7 { color: #27AE60; } .c8 { color: #F783AC; }
     </style>
 </head>
 <body>
-
-    <a href="2025.html" class="year-link">2025.</a>
-    <a href="2026.html" class="year-link">2026.</a>
-
-    <div class="status-bar">
-        SYSTEM STATUS: ONLINE | DATA_STREAMING... | READY TO PRESENT
+    <div class="container">
+        <script>
+            const colors = ['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8'];
+            for (let i = 0; i < 30; i++) {
+                // 클릭 시 year_select.html로 이동하게 설정
+                document.write(`
+                    <a href="year_select.html">
+                        <div class="row"><div class="text-line ${colors[i % 8]}">goat on the boat</div></div>
+                    </a>
+                `);
+            }
+        </script>
     </div>
-
 </body>
 </html>
