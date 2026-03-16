@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Year - goat on the boat</title>
+    <style>
+        body { 
+            margin: 0; 
+            background: #fff; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+            font-family: 'Times New Roman', serif;
+        }
+
+        /* 중앙 연도 선택 영역 */
+        .select-container { 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+        }
+
+        .year-link { 
+            text-decoration: none; 
+            font-size: 8vw; 
+            font-weight: 900; 
+            margin: 20px 0;
+            transition: transform 0.1s ease-out;
+        }
+
+        /* 메인과 동일한 버튼 효과 */
+        .year-link:hover { transform: translateY(-5px); opacity: 0.8; }
+        .year-link:active { transform: translateY(2px); }
+
+        /* 하단 정보 영역 (Footer) */
+        footer { 
+            padding: 40px 20px; 
+            text-align: center; 
+            font-size: 0.9rem; 
+            letter-spacing: 1px;
+        }
+        
+        .sns-links a { 
+            margin: 0 15px; 
+            color: #000; 
+            text-decoration: none; 
+            font-weight: bold;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.3s;
+        }
+
+        .sns-links a:hover { border-bottom: 1px solid #000; }
+
+        /* 컬러 팔레트 적용 */
+        .c-2025 { color: #FF6B6B; text-shadow: 2px 0 #4ECDC4; }
+        .c-2026 { color: #2D9CDB; text-shadow: 2px 0 #FFE66D; }
+    </style>
+</head>
+<body>
+
+    <div class="select-container">
+        <a href="2025.html" class="year-link c-2025">2025</a>
+        <a href="2026.html" class="year-link c-2026">2026</a>
+    </div>
+
+    <footer>
+        <div class="sns-links">
+            <a href="https://youtube.com/@작가님계정" target="_blank">YOUTUBE</a>
+            <a href="https://instagram.com/작가님계정" target="_blank">INSTAGRAM</a>
+            <a href="mailto:작가님이메일@gmail.com">EMAIL</a>
+        </div>
+        <p style="margin-top: 20px; color: #999;">&copy; 2026 goat on the boat. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
