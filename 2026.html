@@ -4,72 +4,81 @@
     <meta charset="UTF-8">
     <title>2026_OPERATIONAL_SYSTEM</title>
     <style>
-        body { background: #000; color: #0f0; font-family: 'Courier New', monospace; padding: 30px; }
-        .header { border-bottom: 2px solid #0f0; padding-bottom: 20px; margin-bottom: 30px; }
-        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-        .card { border: 1px solid #333; padding: 20px; background: #0a0a0a; }
-        h2 { font-size: 0.9rem; color: #fff; margin-bottom: 10px; }
-        .impact-score { font-size: 2.5rem; font-weight: bold; color: #0f0; }
-        .platform-list { list-style: none; padding: 0; margin-top: 10px; }
-        .platform-list li { margin-bottom: 8px; border-bottom: 1px solid #222; padding-bottom: 5px; }
-        iframe { width: 100%; height: 250px; border: none; margin-top: 10px; }
+        body { background: #fff; color: #000; font-family: 'Times New Roman', serif; padding: 40px; }
+        .header { border-bottom: 3px solid #000; padding-bottom: 20px; margin-bottom: 40px; }
+        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
+        .card { border: 3px solid #000; padding: 30px; background: #fff; }
+        h2 { font-size: 1.2rem; margin-bottom: 15px; text-transform: uppercase; }
         
+        /* 포인트 컬러 적용 */
+        .impact-score { font-size: 4rem; font-weight: 900; color: #36BAFF; }
+        iframe { width: 100%; height: 250px; border: 3px solid #000; margin-top: 15px; }
+        
+        /* 버튼 스타일 유지 */
         .month-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 15px; }
-        .month-btn { background: #111; color: #0f0; text-decoration: none; padding: 10px; text-align: center; border: 1px solid #0f0; font-size: 0.8rem; }
-        .month-btn:hover { background: #0f0; color: #000; }
+        .month-btn { background: #000; color: #fff; text-decoration: none; padding: 15px; text-align: center; font-weight: bold; }
+        .month-btn:hover { background: #36BAFF; color: #000; }
         
-        .back-btn { color: #fff; text-decoration: none; }
+        .back-btn { color: #000; text-decoration: none; font-weight: 900; border-bottom: 3px solid #000; }
+        
+        /* 푸터 스타일 통일 (밑줄 제거) */
+        footer { margin-top: 50px; text-align: center; border-top: 3px solid #000; padding-top: 30px; }
+        .sns-links a, .sns-links .email-text { 
+            margin: 0 20px; color: #000; font-weight: 900; 
+            font-family: 'Times New Roman', serif; text-decoration: none; 
+        }
+        .sns-links a:hover { color: #36BAFF; }
     </style>
 </head>
 <body>
     <div class="header">
-        <a href="index.html" class="back-btn"><< BACK TO MAIN</a>
-        <h1>2026_OPERATIONAL_SYSTEM</h1>
+        <a href="year_select.html" class="back-btn"><< BACK</a>
+        <h1 style="font-size: 3rem; margin: 10px 0;">2026_OPERATIONAL_SYSTEM</h1>
     </div>
 
     <div class="grid-container">
         <div class="card">
             <h2>TOTAL INTEGRATED IMPACT</h2>
             <div class="impact-score">63,031</div>
-            <p style="font-size: 0.7rem; color: #666;">(STREAMING + VIEWS)</p>
         </div>
         <div class="card">
             <h2>PLATFORM BREAKDOWN</h2>
-            <ul class="platform-list">
+            <ul style="list-style: none; padding: 0;">
                 <li>YOUTUBE: 63,000</li>
                 <li>SPOTIFY: 31</li>
-                <li>APPLE MUSIC: 0</li>
             </ul>
         </div>
     </div>
 
     <div class="grid-container">
         <div class="card">
-            <h2>TOP PERFORMING MUSIC (2026)</h2>
+            <h2>TOP PERFORMING MUSIC</h2>
             <iframe src="https://www.youtube.com/embed/3K-lREmZDEg" allowfullscreen></iframe>
         </div>
         <div class="card">
-            <h2>TOP PERFORMING SHORTS (2026)</h2>
+            <h2>TOP PERFORMING SHORTS</h2>
             <iframe src="https://www.youtube.com/embed/OGRAVgVFlh4" allowfullscreen></iframe>
         </div>
     </div>
 
     <div class="card">
-        <h2>MONTHLY STATS ARCHIVE (2026)</h2>
+        <h2>MONTHLY STATS ARCHIVE</h2>
         <div class="month-grid">
-            <a href="2026_01.html" class="month-btn">JAN</a>
-            <a href="2026_02.html" class="month-btn">FEB</a>
-            <a href="2026_03.html" class="month-btn">MAR</a>
-            <a href="2026_04.html" class="month-btn">APR</a>
-            <a href="2026_05.html" class="month-btn">MAY</a>
-            <a href="2026_06.html" class="month-btn">JUN</a>
-            <a href="2026_07.html" class="month-btn">JUL</a>
-            <a href="2026_08.html" class="month-btn">AUG</a>
-            <a href="2026_09.html" class="month-btn">SEP</a>
-            <a href="2026_10.html" class="month-btn">OCT</a>
-            <a href="2026_11.html" class="month-btn">NOV</a>
-            <a href="2026_12.html" class="month-btn">DEC</a>
+            <a href="2026_01.html" class="month-btn">JAN</a><a href="2026_02.html" class="month-btn">FEB</a>
+            <a href="2026_03.html" class="month-btn">MAR</a><a href="2026_04.html" class="month-btn">APR</a>
+            <a href="2026_05.html" class="month-btn">MAY</a><a href="2026_06.html" class="month-btn">JUN</a>
+            <a href="2026_07.html" class="month-btn">JUL</a><a href="2026_08.html" class="month-btn">AUG</a>
+            <a href="2026_09.html" class="month-btn">SEP</a><a href="2026_10.html" class="month-btn">OCT</a>
+            <a href="2026_11.html" class="month-btn">NOV</a><a href="2026_12.html" class="month-btn">DEC</a>
         </div>
     </div>
+
+    <footer>
+        <div class="sns-links">
+            <a href="https://www.youtube.com/@goat_on_the_boat" target="_blank">YOUTUBE</a>
+            <a href="https://www.instagram.com/goatontheboat_kr/" target="_blank">INSTAGRAM</a>
+            <span class="email-text">EMAIL: dldbwls980112@gmail.com</span>
+        </div>
+    </footer>
 </body>
 </html>

@@ -23,24 +23,16 @@
         .year-link:hover { transform: translateY(-8px); opacity: 0.8; }
         .year-link:active { transform: translateY(3px); }
 
-        /* 작가님이 보내주신 컬러 추출 반영 */
-        .c-2025 { 
-            color: #FF71A7; /* 보내주신 핑크 */
-            text-shadow: 4px 0 #7DE2D1; /* 민트 글리치 */
-        }
-        .c-2026 { 
-            color: #36BAFF; /* 보내주신 하늘색 */
-            text-shadow: 4px 0 #FFE86E; /* 샛노랑 글리치 */
-        }
+        .c-2025 { color: #FF71A7; text-shadow: 4px 0 #7DE2D1; }
+        .c-2026 { color: #36BAFF; text-shadow: 4px 0 #FFE86E; }
 
+        /* 푸터 스타일 통일 (밑줄 제거) */
         footer { padding: 50px 20px; text-align: center; font-size: 0.9rem; font-weight: 900; }
-        
-        .sns-links a { 
+        .sns-links a, .sns-links .email-text { 
             margin: 0 20px; color: #000; text-decoration: none; 
-            border-bottom: 3px solid #000; transition: all 0.2s;
+            font-weight: 900; font-family: 'Times New Roman', serif;
         }
-
-        .sns-links a:hover { color: #FF71A7; border-bottom: 3px solid #FF71A7; }
+        .sns-links a:hover { color: #FF71A7; }
     </style>
 </head>
 <body>
@@ -54,7 +46,7 @@
         <div class="sns-links">
             <a href="https://www.youtube.com/@goat_on_the_boat" target="_blank">YOUTUBE</a>
             <a href="https://www.instagram.com/goatontheboat_kr/" target="_blank">INSTAGRAM</a>
-            <a href="mailto:contact@goatontheboat.art">EMAIL</a>
+            <span class="email-text">EMAIL: dldbwls980112@gmail.com</span>
         </div>
     </footer>
 

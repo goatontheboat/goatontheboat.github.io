@@ -2,35 +2,39 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>SYSTEM_ARCHIVE_2025</title>
+    <title>2025_RETROSPECTIVE</title>
     <style>
-        body { background: #000; color: #0f0; font-family: 'Courier New', monospace; padding: 30px; }
-        .header { border-bottom: 2px solid #0f0; padding-bottom: 20px; margin-bottom: 30px; }
-        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .card { border: 1px solid #333; padding: 20px; background: #0a0a0a; }
-        h2 { font-size: 0.9rem; color: #fff; margin-bottom: 10px; }
-        .impact-score { font-size: 2.5rem; font-weight: bold; color: #0f0; }
-        .platform-list { list-style: none; padding: 0; margin-top: 10px; }
-        .platform-list li { margin-bottom: 8px; border-bottom: 1px solid #222; padding-bottom: 5px; }
-        iframe { width: 100%; height: 250px; border: none; margin-top: 10px; }
-        .back-btn { color: #fff; text-decoration: none; }
+        body { background: #fff; color: #000; font-family: 'Times New Roman', serif; padding: 40px; }
+        .header { border-bottom: 3px solid #000; padding-bottom: 20px; margin-bottom: 40px; }
+        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .card { border: 3px solid #000; padding: 30px; background: #fff; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); }
+        h2 { font-size: 1.2rem; margin-bottom: 15px; text-transform: uppercase; }
+        
+        /* 포인트 컬러 적용 */
+        .impact-score { font-size: 4rem; font-weight: 900; color: #FF71A7; } 
+        iframe { width: 100%; height: 300px; border: 3px solid #000; margin-top: 15px; }
+        
+        .back-btn { color: #000; text-decoration: none; font-weight: 900; border-bottom: 2px solid #000; }
+        footer { margin-top: 50px; text-align: center; border-top: 3px solid #000; padding-top: 30px; }
+        .sns-links a { margin: 0 20px; color: #000; text-decoration: none; font-weight: 900; border-bottom: 3px solid #000; }
+        .sns-links a:hover { color: #FF71A7; border-bottom: 3px solid #FF71A7; }
     </style>
 </head>
 <body>
     <div class="header">
-        <a href="index.html" class="back-btn"><< BACK TO MAIN</a>
-        <h1>2025_RETROSPECTIVE</h1>
+        <a href="year_select.html" class="back-btn"><< BACK</a>
+        <h1 style="font-size: 3rem; margin: 10px 0;">2025_RETROSPECTIVE</h1>
     </div>
 
-    <div class="grid-container" style="margin-bottom: 20px;">
+    <div class="grid-container">
         <div class="card">
             <h2>TOTAL INTEGRATED IMPACT</h2>
             <div class="impact-score">228,058</div>
-            <p style="font-size: 0.7rem; color: #666;">(STREAMING + VIEWS)</p>
         </div>
         <div class="card">
             <h2>PLATFORM BREAKDOWN</h2>
-            <ul class="platform-list">
+            <ul style="list-style: none; padding: 0;">
                 <li>YOUTUBE: 228,000</li>
                 <li>SPOTIFY: 58</li>
                 <li>APPLE MUSIC: 0</li>
@@ -38,7 +42,7 @@
         </div>
     </div>
 
-    <div class="grid-container">
+    <div class="grid-container" style="margin-top: 30px;">
         <div class="card">
             <h2>TOP PERFORMING MUSIC</h2>
             <iframe src="https://www.youtube.com/embed/feJyRrQAvY4" allowfullscreen></iframe>
@@ -48,5 +52,12 @@
             <iframe src="https://www.youtube.com/embed/a7pJOTG-1XQ" allowfullscreen></iframe>
         </div>
     </div>
-</body>
+
+<footer>
+        <div class="sns-links">
+            <a href="https://www.youtube.com/@goat_on_the_boat" target="_blank">YOUTUBE</a>
+            <a href="https://www.instagram.com/goatontheboat_kr/" target="_blank">INSTAGRAM</a>
+            <span class="email-text">EMAIL: dldbwls980112@gmail.com</span>
+        </div>
+    </footer>
 </html>
