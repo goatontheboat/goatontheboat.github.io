@@ -3,64 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <title>2026_OPERATIONAL_SYSTEM</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body { background: #fff; color: #000; font-family: 'Times New Roman', serif; padding: 40px; }
         .header { border-bottom: 3px solid #000; padding-bottom: 20px; margin-bottom: 40px; }
         .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
-        .card { border: 3px solid #000; padding: 30px; background: #fff; }
-        h2 { font-size: 1.2rem; margin-bottom: 15px; text-transform: uppercase; }
+        .card { border: 3px solid #000; padding: 30px; background: #fff; margin-bottom: 30px; }
+        h2 { font-size: 1.2rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
         
-        /* 포인트 컬러 적용 */
+        .featured-card { border: 5px solid #000; padding: 30px; margin-bottom: 30px; }
+        .featured-card h2 { color: #000; border-left: 15px solid #000; padding-left: 15px; }
+        
         .impact-score { font-size: 4rem; font-weight: 900; color: #36BAFF; }
+        
+        .main-video { width: 100%; height: 500px; border: 3px solid #000; margin-top: 15px; background: #000; }
         iframe { width: 100%; height: 250px; border: 3px solid #000; margin-top: 15px; }
         
-        /* 버튼 스타일 유지 */
         .month-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 15px; }
         .month-btn { background: #000; color: #fff; text-decoration: none; padding: 15px; text-align: center; font-weight: bold; }
         .month-btn:hover { background: #36BAFF; color: #000; }
         
-        .back-btn { color: #000; text-decoration: none; font-weight: 900; border-bottom: 3px solid #000; }
-        
-        /* 푸터 스타일 통일 (밑줄 제거) */
+        .content-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .content-table th, .content-table td { border: 1px solid #000; padding: 12px; text-align: left; font-size: 0.9rem; }
+        .content-table th { background: #000; color: #fff; }
+
+        canvas { width: 100% !important; height: 300px !important; margin-top: 15px; }
+        .back-btn { color: #000; text-decoration: none; font-weight: 900; border-bottom: 2px solid #000; }
         footer { margin-top: 50px; text-align: center; border-top: 3px solid #000; padding-top: 30px; }
-        .sns-links a, .sns-links .email-text { 
-            margin: 0 20px; color: #000; font-weight: 900; 
-            font-family: 'Times New Roman', serif; text-decoration: none; 
+        .sns-links a { margin: 0 20px; color: #000; text-decoration: none; font-weight: 900; border-bottom: 3px solid #000; }
+
+        /* 공지 영역: 작가님 요청에 따른 세 줄 배치 최적화 */
+        .event-note { 
+            font-weight: 900; 
+            font-size: 1.1rem; 
+            padding: 20px; 
+            border: 3px solid #000; 
+            margin-bottom: 30px; 
+            background-color: #f9f9f9; 
+            line-height: 1.8; 
         }
-        .sns-links a:hover { color: #36BAFF; }
     </style>
 </head>
 <body>
     <div class="header">
         <a href="year_select.html" class="back-btn"><< BACK</a>
-        <h1 style="font-size: 3rem; margin: 10px 0;">2026_OPERATIONAL_SYSTEM</h1>
+        <h1 style="font-size: 3.5rem; margin: 10px 0; letter-spacing: -2px;">2026_OPERATIONAL_SYSTEM</h1>
     </div>
 
-    <div class="grid-container">
-        <div class="card">
-            <h2>TOTAL INTEGRATED IMPACT</h2>
-            <div class="impact-score">63,031</div>
-        </div>
-        <div class="card">
-            <h2>PLATFORM BREAKDOWN</h2>
-            <ul style="list-style: none; padding: 0;">
-                <li>YOUTUBE: 63,000</li>
-                <li>SPOTIFY: 31</li>
-            </ul>
-        </div>
+    <!-- [1] 공지 영역: 세 줄 분리 배치 -->
+    <div class="event-note">
+        NOTE<br>
+        1. 2026년도 시스템 아카이빙 및 그래프 통계 도입이 공식적으로 시작되었다.<br>
+        2. 시네마틱 영상 콘텐츠 항목이 추가되었다.
+    </div>
+
+    <!-- [2] 콘텐츠 영역 -->
+    <div class="featured-card">
+        <h2>FEATURED: CINEMATIC SYSTEM</h2>
+        <iframe class="main-video" src="https://www.youtube.com/embed/7DM8dNENBnY" allowfullscreen></iframe>
     </div>
 
     <div class="grid-container">
         <div class="card">
             <h2>TOP PERFORMING MUSIC</h2>
-            <iframe src="https://www.youtube.com/embed/3K-lREmZDEg" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/3VMRl7Elthw" allowfullscreen></iframe>
         </div>
         <div class="card">
-            <h2>TOP PERFORMING SHORTS</h2>
-            <iframe src="https://www.youtube.com/embed/OGRAVgVFlh4" allowfullscreen></iframe>
+            <h2>TOP PERFORMING ART</h2>
+            <iframe src="https://www.youtube.com/embed/-IN3G2QF7s4" allowfullscreen></iframe>
         </div>
     </div>
 
+    <!-- [3] 그래프 영역 -->
+    <div class="card">
+        <h2>ANNUAL PERFORMANCE GRAPH (JAN-APR)</h2>
+        <canvas id="annualChart"></canvas>
+    </div>
+
+    <!-- [4] 상세 데이터 로그 -->
+    <div class="card">
+        <h2>SYSTEM CONTENT LOG (TOP RECORDS)</h2>
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Identification</th>
+                    <th>Views</th>
+                    <th>Retention</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Mar 7, 2026</td><td>풍경. 87 (part 1)</td><td>2,452</td><td>0:12</td></tr>
+                <tr><td>Jan 16, 2026</td><td>한 자 반, 두 자 (part 2)</td><td>2,401</td><td>0:22</td></tr>
+                <tr><td>Feb 26, 2026</td><td>풍경. 85 (part 2)</td><td>2,378</td><td>0:18</td></tr>
+                <tr><td>Apr 10, 2026</td><td>[뇌파 VS 초음파] 1차 예고편</td><td>1,558</td><td>0:31</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- [5] 통계 수치 요약 -->
+    <div class="grid-container">
+        <div class="card">
+            <h2>TOTAL INTEGRATED IMPACT</h2>
+            <div class="impact-score">94,021</div>
+        </div>
+        <div class="card">
+            <h2>SYSTEM PERFORMANCE</h2>
+            <ul style="list-style: none; padding: 0; font-weight: bold; line-height: 1.8;">
+                <li>WATCH TIME: 209.6H</li>
+                <li>AVG. RETENTION: 0:27</li>
+                <li>PLATFORM: YOUTUBE</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 하단 월별 아카이브 탭 -->
     <div class="card">
         <h2>MONTHLY STATS ARCHIVE</h2>
         <div class="month-grid">
@@ -77,8 +134,35 @@
         <div class="sns-links">
             <a href="https://www.youtube.com/@goat_on_the_boat" target="_blank">YOUTUBE</a>
             <a href="https://www.instagram.com/goatontheboat_kr/" target="_blank">INSTAGRAM</a>
-            <span class="email-text">EMAIL: dldbwls980112@gmail.com</span>
         </div>
     </footer>
+
+    <script>
+        const ctx = document.getElementById('annualChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['JAN', 'FEB', 'MAR', 'APR'],
+                datasets: [{
+                    label: 'VIEWS',
+                    data: [18500, 33000, 21225, 21296],
+                    borderColor: '#000',
+                    borderWidth: 4,
+                    fill: false,
+                    tension: 0.2,
+                    pointBackgroundColor: '#36BAFF'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, grid: { color: '#eee' } },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
