@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>MAR_2026_STATS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { background: #fff; color: #000; font-family: 'Times New Roman', serif; padding: 40px; }
+        .header { border-bottom: 3px solid #000; padding-bottom: 20px; margin-bottom: 40px; }
+        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
+        .card { border: 3px solid #000; padding: 30px; background: #fff; }
+        .full-card { border: 3px solid #000; padding: 30px; margin-bottom: 30px; grid-column: span 2; }
+        h2 { font-size: 1.2rem; margin-bottom: 15px; text-transform: uppercase; }
+        
+        /* 3월 포인트 컬러: Deep Navy (작가님의 브랜딩 이미지 조화) */
+        .impact-score { font-size: 4rem; font-weight: 900; color: #1A237E; }
+        
+        canvas { width: 100% !important; height: 300px !important; margin-top: 15px; }
+        iframe { width: 100%; height: 250px; border: 3px solid #000; margin-top: 15px; }
+        
+        .back-btn { color: #000; text-decoration: none; font-weight: 900; border-bottom: 3px solid #000; }
+        
+        footer { margin-top: 50px; text-align: center; border-top: 3px solid #000; padding-top: 30px; }
+        .sns-links a, .sns-links .email-text { 
+            margin: 0 20px; color: #000; font-weight: 900; 
+            font-family: 'Times New Roman', serif; text-decoration: none; 
+        }
+        .sns-links a:hover { color: #1A237E; }
+
+        /* 특정 사건 기록 섹션 */
+        .event-note {
+            grid-column: span 2;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-align: left;
+            padding: 20px;
+            border: 3px solid #000;
+            margin-bottom: 30px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="2026.html" class="back-btn"><< BACK TO 2026</a>
+        <h1 style="font-size: 3rem; margin: 10px 0;">MAR_2026_STATS</h1>
+    </div>
+
+    <div class="event-note">
+        NOTE: 그래프 통계의 도입이 시작되었다.
+    </div>
+
+    <div class="full-card">
+        <h2>SYSTEM PERFORMANCE OVERVIEW (MARCH)</h2>
+        <canvas id="marchChart"></canvas>
+    </div>
+
+    <div class="grid-container">
+        <div class="card">
+            <h2>MONTHLY TOTAL VIEWS</h2>
+            <div class="impact-score">21,225</div>
+        </div>
+        <div class="card">
+            <h2>ENGAGEMENT SUMMARY</h2>
+            <ul style="list-style: none; padding: 0; font-weight: bold;">
+                <li style="margin-bottom: 10px;">TOTAL WATCH TIME: 42.4H</li>
+                <li style="margin-bottom: 10px;">UNIQUE VIEWERS: 3,838</li>
+                <li>AVG. RETENTION: 0:28</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="card">
+            <h2>TOP PERFORMING MUSIC</h2>
+            <iframe src="https://www.youtube.com/embed/3VMRl7Elthw" allowfullscreen></iframe>
+        </div>
+        <div class="card">
+            <h2>TOP PERFORMING ART</h2>
+            <iframe src="https://www.youtube.com/embed/-IN3G2QF7s4" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <div class="sns-links">
+            <a href="https://www.youtube.com/@goat_on_the_boat" target="_blank">YOUTUBE</a>
+            <a href="https://www.instagram.com/goatontheboat_kr/" target="_blank">INSTAGRAM</a>
+            <span class="email-text">EMAIL: dldbwls980112@gmail.com</span>
+        </div>
+    </footer>
+
+    <script>
+        const ctx = document.getElementById('marchChart').getContext('2d');
+        
+        // 3월 일별 전체 평균 데이터 추이 시뮬레이션
+        const labels = Array.from({length: 31}, (_, i) => `${i + 1}`);
+        const viewData = [
+            2100, 600, 450, 250, 1100, 500, 2100, 2350, 2650, 450, 
+            400, 280, 550, 800, 450, 250, 480, 470, 0, 1000, 
+            550, 750, 0, 1300, 650, 1600, 1300, 1000, 50, 450, 150
+        ];
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'VIEWS',
+                    data: viewData,
+                    borderColor: '#1A237E',
+                    borderWidth: 3,
+                    fill: false,
+                    tension: 0.2,
+                    pointRadius: 2,
+                    pointBackgroundColor: '#1A237E'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false }, ticks: { font: { weight: 'bold' } } },
+                    y: { beginAtZero: true, grid: { color: '#eee' }, ticks: { font: { weight: 'bold' } } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
