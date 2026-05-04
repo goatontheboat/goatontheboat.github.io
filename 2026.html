@@ -41,6 +41,48 @@
             background-color: #f9f9f9; 
             line-height: 1.8; 
         }
+
+        /* 2026 시스템 컨셉 포트폴리오 스타일 */
+        .system-portfolio-area {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .portfolio-glitch-link {
+            text-decoration: none;
+            display: block;
+            background: #fff;
+            border: 5px solid #000;
+            padding: 20px 0;
+            transition: all 0.2s ease;
+            overflow: hidden;
+        }
+
+        .glitch-text {
+            font-family: 'Times New Roman', serif;
+            font-size: 5vw;
+            font-weight: 900;
+            color: #36BAFF; 
+            text-shadow: 3px 0 #FFE86E, -3px 0 #000; 
+            text-transform: uppercase;
+            display: inline-block;
+            transform: scaleX(1.8); 
+            letter-spacing: -2px;
+            mix-blend-mode: multiply;
+            transition: all 0.2s ease;
+        }
+
+        /* 호버 효과 수정: 배경색 변경(background: #000) 제거 */
+        .portfolio-glitch-link:hover {
+            border-color: #36BAFF;
+        }
+
+        .portfolio-glitch-link:hover .glitch-text {
+            /* 글자색이 흰색으로 변하는 효과를 시스템 블루로 변경하거나 유지 */
+            color: #36BAFF; 
+            text-shadow: 5px 0 #FFE86E, -5px 0 #FF6B6B;
+            transform: scaleX(2.0) skewX(-5deg); 
+        }
     </style>
 </head>
 <body>
@@ -55,7 +97,6 @@
         2. 시네마틱 영상 콘텐츠 항목이 추가되었다.
     </div>
 
-    <!-- [2] 콘텐츠 영역 -->
     <div class="featured-card">
         <h2>FEATURED: CINEMATIC SYSTEM</h2>
         <iframe class="main-video" src="https://www.youtube.com/embed/7DM8dNENBnY" allowfullscreen></iframe>
@@ -72,13 +113,11 @@
         </div>
     </div>
 
-    <!-- [3] 그래프 영역 -->
     <div class="card">
         <h2>ANNUAL PERFORMANCE GRAPH (JAN-APR)</h2>
         <canvas id="annualChart"></canvas>
     </div>
 
-    <!-- [4] 상세 데이터 로그 -->
     <div class="card">
         <h2>SYSTEM CONTENT LOG (TOP RECORDS)</h2>
         <table class="content-table">
@@ -99,7 +138,6 @@
         </table>
     </div>
 
-    <!-- [5] 통계 수치 요약 -->
     <div class="grid-container">
         <div class="card">
             <h2>TOTAL INTEGRATED IMPACT</h2>
@@ -115,14 +153,19 @@
         </div>
     </div>
 
-    <!-- 하단 월별 아카이브 탭 (수정 완료) -->
+    <div class="system-portfolio-area">
+        <h2 style="text-align: left; margin-bottom: 10px;">SYSTEM_AUTHOR_PORTFOLIO</h2>
+        <a href="portfolio.html" class="portfolio-glitch-link">
+            <span class="glitch-text">VIEW PORTFOLIO</span>
+        </a>
+    </div>
+
     <div class="card">
         <h2>MONTHLY STATS ARCHIVE</h2>
         <div class="month-grid">
             <a href="2026_01.html" class="month-btn">JAN</a>
             <a href="2026_02.html" class="month-btn">FEB</a>
             <a href="2026_03.html" class="month-btn">MAR</a>
-            <!-- 4월부터 12월까지는 제작 중 페이지로 연결 -->
             <a href="coming_soon.html" class="month-btn">APR</a>
             <a href="coming_soon.html" class="month-btn">MAY</a>
             <a href="coming_soon.html" class="month-btn">JUN</a>
