@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>LEE_EU_JENE_PORTFOLIO</title>
+    <!-- 세련된 서체: Pretendard(한글), Cinzel(제목), Inter(숫자) -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --point-color: #36BAFF;
+            --main-font: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            --title-font: 'Cinzel', serif;
+            --num-font: 'Inter', sans-serif;
+        }
+
+        body { 
+            background: #fff; 
+            color: #000; 
+            font-family: var(--main-font); 
+            padding: 80px 40px; 
+            line-height: 1.8; 
+            word-break: keep-all;
+        }
+
+        .header { 
+            border-bottom: 5px solid #000; 
+            padding-bottom: 30px; 
+            margin-bottom: 60px; 
+        }
+
+        /* 출생 연도 스타일 */
+        .bio-info {
+            font-family: var(--num-font);
+            font-size: 1.1rem;
+            color: #555;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            font-weight: 400;
+        }
+
+        h1 { 
+            font-family: var(--title-font); 
+            font-size: 4rem; 
+            margin: 10px 0; 
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        h2 { 
+            font-family: var(--title-font);
+            font-size: 1.8rem; 
+            border-bottom: 2px solid #000;
+            display: inline-block;
+            margin-top: 60px; 
+            margin-bottom: 25px;
+            padding-right: 20px;
+        }
+        
+        .section { margin-bottom: 70px; }
+        
+        .cv-item { 
+            margin-bottom: 12px; 
+            font-size: 1.1rem;
+            letter-spacing: -0.3px;
+        }
+
+        .statement { 
+            font-size: 1.2rem;
+            color: #1a1a1a; 
+            max-width: 900px; 
+            text-align: justify; 
+            background: #f9f9f9;
+            padding: 35px;
+            border-left: 5px solid var(--point-color);
+        }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        td { 
+            padding: 18px 0; 
+            border-bottom: 1px solid #eee; 
+            vertical-align: top; 
+            font-size: 1.05rem;
+        }
+        .year { 
+            font-family: var(--num-font);
+            width: 150px; 
+            font-weight: 700; 
+            color: #555;
+        }
+
+        .pdf-view-btn { 
+            display: inline-block; 
+            margin-top: 60px; 
+            padding: 25px 60px; 
+            background: #000; 
+            color: #fff; 
+            text-decoration: none; 
+            font-weight: 900; 
+            font-family: var(--num-font);
+            letter-spacing: 4px; 
+            transition: all 0.3s ease;
+        }
+        .pdf-view-btn:hover { 
+            background: var(--point-color); 
+            color: #000; 
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .back-btn { 
+            font-family: var(--num-font);
+            color: #000; 
+            text-decoration: none; 
+            font-weight: 900; 
+            border-bottom: 2px solid #000;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .back-btn:hover { color: var(--point-color); border-color: var(--point-color); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="2026.html" class="back-btn">← BACK TO MAIN SYSTEM</a>
+        <div class="bio-info" style="margin-top: 40px;">b. 1998</div>
+        <h1>LEE EU JENE</h1>
+        <p style="font-weight: 300; letter-spacing: 6px; color: #888;">VISUAL ARTIST PORTFOLIO</p>
+    </div>
+
+    <!-- 학력 섹션 -->
+    <div class="section">
+        <h2>Education</h2>
+        <div class="cv-item">2026 - 현재: 홍익대학교 회화과 박사 과정 재학 중</div>
+        <div class="cv-item">2024 - 2026: 홍익대학교 회화과 석사과정 졸업</div>
+        <div class="cv-item">2016 - 2020: 홍익대학교 회화과 졸업</div>
+    </div>
+
+    <!-- 작가 노트 섹션 -->
+    <div class="section">
+        <h2>Artist Statement</h2>
+        <div class="statement">
+            나의 작업은 '감각의 사유'에 관한 것이다. 지성의 확장과 더불어 직관이 특정화 되었다면, 그 과정에서 탈락된 요소 중 감각 본연의 사유도 포함되지 않을까. 이처럼 보다 원초적인 감각 사유의 실마리를 초기 인류로부터 지속된 '신화'에서 찾을 수도 있다 생각했다.
+            관념화된 ‘토속성’의 재현 아닌 ‘토속적 행위(Vernacular)’에 초점을 맞춰 작품을 제작하고 연구한다.
+        </div>
+    </div>
+
+    <!-- 참여 전시 이력 섹션 -->
+    <div class="section">
+        <h2>Solo Exhibitions</h2>
+        <table>
+            <tr><td class="year">2026</td><td>[하늘], 2026.1.20-1.31. 스페이스결</td></tr>
+            <tr><td class="year">2025</td><td>[뫼 shan], 2025.8.19-8.24. 사이아트 갤러리</td></tr>
+            <tr><td class="year">2025</td><td>[표랑 drift], 2025.2.1-2.9. 바이브아트스페이스 갤러리</td></tr>
+        </table>
+
+        <h2>Group Exhibitions</h2>
+        <table>
+            <tr><td class="year">2025</td><td>[2025 홍익하다 art up], 2025.7.29.-8.4. 갤러리 칠</td></tr>
+            <tr><td class="year">2025</td><td>[No Scape No Painting], 2025.3.18-3.30. 웨이브아트스페이스 / 바이브아트스페이스 갤러리</td></tr>
+            <tr><td class="year">2024</td><td>["Perspectives 2024" 국제전], 2024.1.31-2.18. CICA 미술관</td></tr>
+            <tr><td class="year">2021</td><td>[새로운 시대], 2021.5.16-5.19. 조형아트 서울 2021 COEX</td></tr>
+            <tr><td class="year">2020</td><td>[조합되고 반복된 풍경의 흔적], 2020.5. Interlab</td></tr>
+            <tr><td class="year">2019</td><td>[넘어, 선], 2019.8.1-8.10. A.bunker</td></tr>
+        </table>
+    </div>
+
+    <!-- PDF 뷰어 연결 버튼 섹션 -->
+    <div class="section" style="text-align: center;">
+        <p style="color: #666; font-size: 0.9rem; margin-bottom: -40px;">전체 도판 및 연구 보고서 열람</p>
+        <a href="portfolio_lee_eu_jene.pdf" target="_blank" class="pdf-view-btn">VIEW FULL PORTFOLIO (PDF)</a>
+    </div>
+
+    <footer style="margin-top: 150px; font-size: 0.85rem; color: #ccc; font-family: var(--num-font); letter-spacing: 1px;">
+        © 2026 LEE EU JENE. ALL RIGHTS RESERVED.
+    </footer>
+</body>
+</html>
