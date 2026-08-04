@@ -3,146 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <title>LEE_EU_JENE_PORTFOLIO</title>
-    <!-- 세련된 서체: Pretendard(한글), Cinzel(제목), Inter(숫자) -->
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --point-color: #36BAFF;
-            --main-font: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-            --title-font: 'Cinzel', serif;
-            --num-font: 'Inter', sans-serif;
-        }
-
         body { 
             background: #fff; 
             color: #000; 
-            font-family: var(--main-font); 
-            padding: 80px 40px; 
-            line-height: 1.8; 
+            font-family: 'Times New Roman', serif; 
+            padding: 40px; 
+            position: relative;
+            font-weight: 900;
+            line-height: 1.8;
             word-break: keep-all;
         }
 
+        /* 본문 및 작은 글자 영역에만 나눔명조 적용 */
+        .statement, .cv-item, td, .year, p, footer, h2 {
+            font-family: 'NanumMyeongjo', 'Nanum Myeongjo', serif;
+        }
+
+        /* 상단 좌측 그림판 스타일 화살표 (2026 메인 복귀) */
+        .top-left-back {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            mix-blend-mode: multiply;
+            transition: transform 0.1s ease-out, opacity 0.1s;
+        }
+
+        .top-left-back:hover { 
+            transform: translateX(-5px); 
+            opacity: 0.8; 
+        }
+
+        .mspaint-arrow {
+            width: 50px;
+            height: 30px;
+            fill: #7DE2D1; 
+            stroke: #000000;
+            stroke-width: 1px; 
+            stroke-linejoin: round;
+        }
+
+        /* 화살표 아래로 내려온 헤더 영역 */
         .header { 
-            border-bottom: 5px solid #000; 
-            padding-bottom: 30px; 
-            margin-bottom: 60px; 
+            border-bottom: 3px solid #000; 
+            padding-bottom: 25px; 
+            margin-bottom: 50px; 
+            margin-top: 60px; 
         }
 
-        /* 출생 연도 스타일 */
-        .bio-info {
-            font-family: var(--num-font);
-            font-size: 1.1rem;
-            color: #555;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-            font-weight: 400;
+        /* 메인 타이틀 글리치 스타일 적용 (이전과 동일하게 유지) */
+        .glitch-title {
+            display: flex;
+            text-decoration: none;
+            mix-blend-mode: multiply;
+            margin: 0;
+            line-height: 1;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
-        h1 { 
-            font-family: var(--title-font); 
-            font-size: 4rem; 
-            margin: 10px 0; 
-            letter-spacing: 2px;
+        .char {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1;
+            text-shadow: 3px 0 #FF71A7, -3px 0 #36BAFF;
+            display: inline-block;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .c1 { color: #36BAFF; text-shadow: 3px 0 #FF71A7; }
+        .c2 { color: #FF71A7; text-shadow: 3px 0 #FFE86E; }
+        .c3 { color: #FFE86E; text-shadow: 3px 0 #7DE2D1; }
+        .c4 { color: #7DE2D1; text-shadow: 3px 0 #36BAFF; }
+        .c5 { color: #FF71A7; text-shadow: 3px 0 #36BAFF; }
+        .c6 { color: #36BAFF; text-shadow: 3px 0 #FFE86E; }
+        .c7 { color: #FFE86E; text-shadow: 3px 0 #FF71A7; }
+        .c8 { color: #7DE2D1; text-shadow: 3px 0 #FF71A7; }
+        .c9 { color: #FF71A7; text-shadow: 3px 0 #36BAFF; }
+
+        h2 { 
+            font-size: 1.2rem; 
+            border-bottom: 2px solid #000;
+            display: inline-block;
+            margin-top: 50px; 
+            margin-bottom: 20px;
+            padding-right: 15px;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+        
+        .section { margin-bottom: 50px; }
+        
+        .cv-item { 
+            margin-bottom: 10px; 
+            font-size: 1.05rem;
             font-weight: 700;
         }
 
-        h2 { 
-            font-family: var(--title-font);
-            font-size: 1.8rem; 
-            border-bottom: 2px solid #000;
-            display: inline-block;
-            margin-top: 60px; 
-            margin-bottom: 25px;
-            padding-right: 20px;
-        }
-        
-        .section { margin-bottom: 70px; }
-        
-        .cv-item { 
-            margin-bottom: 12px; 
-            font-size: 1.1rem;
-            letter-spacing: -0.3px;
+        /* 작가 노트 텍스트 스타일 */
+        .statement { 
+            font-size: 1.25rem;
+            color: #000; 
+            max-width: 950px; 
+            text-align: justify; 
+            font-weight: 700;
+            line-height: 2.0;
         }
 
-        .statement { 
-            font-size: 1.2rem;
-            color: #1a1a1a; 
-            max-width: 900px; 
-            text-align: justify; 
-            background: #f9f9f9;
-            padding: 35px;
-            border-left: 5px solid var(--point-color);
+        .statement p {
+            margin-bottom: 25px;
         }
         
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
         td { 
-            padding: 18px 0; 
-            border-bottom: 1px solid #eee; 
+            padding: 15px 0; 
+            border-bottom: 1px solid #000; 
             vertical-align: top; 
-            font-size: 1.05rem;
+            font-size: 1rem;
+            font-weight: 700;
         }
         .year { 
-            font-family: var(--num-font);
-            width: 150px; 
+            width: 120px; 
             font-weight: 700; 
-            color: #555;
         }
 
         .pdf-view-btn { 
             display: inline-block; 
-            margin-top: 60px; 
-            padding: 25px 60px; 
+            margin-top: 20px; 
+            padding: 20px 40px; 
             background: #000; 
             color: #fff; 
             text-decoration: none; 
-            font-weight: 900; 
-            font-family: var(--num-font);
-            letter-spacing: 4px; 
-            transition: all 0.3s ease;
+            font-weight: 800; 
+            border: 3px solid #000;
+            transition: all 0.2s ease;
+            mix-blend-mode: multiply;
         }
         .pdf-view-btn:hover { 
-            background: var(--point-color); 
+            background: #36BAFF; 
             color: #000; 
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            border-color: #000;
         }
         
-        .back-btn { 
-            font-family: var(--num-font);
-            color: #000; 
-            text-decoration: none; 
-            font-weight: 900; 
-            border-bottom: 2px solid #000;
-            font-size: 0.9rem;
-            transition: 0.3s;
+        footer { 
+            margin-top: 100px; 
+            text-align: center; 
+            border-top: 3px solid #000; 
+            padding-top: 30px; 
+            font-weight: 700; 
         }
-        .back-btn:hover { color: var(--point-color); border-color: var(--point-color); }
     </style>
 </head>
 <body>
+
+    <!-- 상단 좌측 그림판 스타일 화살표 (2026 메인 복귀) -->
+    <a href="2026.html" class="top-left-back" title="BACK TO 2026">
+        <svg class="mspaint-arrow" viewBox="0 0 100 60">
+            <polygon points="100,20 40,20 40,0 0,30 40,60 40,40 100,40" />
+        </svg>
+    </a>
+
     <div class="header">
-        <a href="2026.html" class="back-btn">← BACK TO MAIN SYSTEM</a>
-        <div class="bio-info" style="margin-top: 40px;">b. 1998</div>
-        <h1>LEE EU JENE</h1>
-        <p style="font-weight: 300; letter-spacing: 6px; color: #888;">VISUAL ARTIST PORTFOLIO</p>
+        <h1 class="glitch-title">
+            <span class="char c1">L</span>
+            <span class="char c2">E</span>
+            <span class="char c3">E</span>
+            <span class="char c4" style="margin-left: 10px;">E</span>
+            <span class="char c5">U</span>
+            <span class="char c6" style="margin-left: 10px;">J</span>
+            <span class="char c7">E</span>
+            <span class="char c8">N</span>
+            <span class="char c9">E</span>
+        </h1>
     </div>
 
-    <!-- 학력 섹션 -->
+    <!-- 정보 섹션 -->
     <div class="section">
-        <h2>Education</h2>
-        <div class="cv-item">2026 - 현재: 홍익대학교 회화과 박사 과정 재학 중</div>
-        <div class="cv-item">2024 - 2026: 홍익대학교 회화과 석사과정 졸업</div>
-        <div class="cv-item">2016 - 2020: 홍익대학교 회화과 졸업</div>
+        <h2>Information</h2>
+        <div class="cv-item">1998. 대한민국 서울 출생</div>
+        <div class="cv-item">2026 - 홍익대학교 회화과 박사 과정 재학 중</div>
+        <div class="cv-item">2026. 홍익대학교 회화과 석사 졸업</div>
+        <div class="cv-item">2020. 홍익대학교 회화과 졸업</div>
     </div>
 
     <!-- 작가 노트 섹션 -->
     <div class="section">
         <h2>Artist Statement</h2>
         <div class="statement">
-            나의 작업은 '감각의 사유'에 관한 것이다. 지성의 확장과 더불어 직관이 특정화 되었다면, 그 과정에서 탈락된 요소 중 감각 본연의 사유도 포함되지 않을까. 이처럼 보다 원초적인 감각 사유의 실마리를 초기 인류로부터 지속된 '신화'에서 찾을 수도 있다 생각했다.
-            관념화된 ‘토속성’의 재현 아닌 ‘토속적 행위(Vernacular)’에 초점을 맞춰 작품을 제작하고 연구한다.
+            <p>나의 작업은 '감각의 사유'에 관한 것이다. 이는 <u>작업 과정에서의 추상적 운동을 보다 직관적으로 드러내려 한다는 의미</u>다. 이를 위해 지지체, 표면, 이미지에서의 행위를 확장시켰으며, 그 결과 기본 요소라 여겨지는 것들에 집중하기 시작했다.</p>
+            <p>예를 들어, 수공구로 목재를 다루는 경우 신체와 목재의 관계가 ‘결’의 형태로 드러난다. 그 결은 또 다시 천, 이미지와 결합되어 작품 안에서 유기적으로 관계된다.</p>
+            <p>이처럼 기본 요소 하나에도 광범위하게 얽혀 있는 문화, 사회, 자연 등과의 관계를 살피며 방법론과 작업의 연구를 지속한다. 그 선례 중 하나인 '토테미즘'을 연구하고 있으며, 한(韓) 민족의 토속 종교와 정서를 주제로 삼고 있다.</p>
         </div>
     </div>
 
@@ -168,11 +222,10 @@
 
     <!-- PDF 뷰어 연결 버튼 섹션 -->
     <div class="section" style="text-align: center;">
-        <p style="color: #666; font-size: 0.9rem; margin-bottom: -40px;">전체 도판 및 연구 보고서 열람</p>
         <a href="portfolio_lee_eu_jene.pdf" target="_blank" class="pdf-view-btn">VIEW FULL PORTFOLIO (PDF)</a>
     </div>
 
-    <footer style="margin-top: 150px; font-size: 0.85rem; color: #ccc; font-family: var(--num-font); letter-spacing: 1px;">
+    <footer>
         © 2026 LEE EU JENE. ALL RIGHTS RESERVED.
     </footer>
 </body>

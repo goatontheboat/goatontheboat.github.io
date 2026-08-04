@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Sound Work - goat on the boat</title>
+    <style>
+        body { 
+            margin: 0; background: #fff; display: flex; flex-direction: column; 
+            min-height: 100vh; font-family: 'Times New Roman', serif;
+            position: relative;
+        }
+
+        /* 상단 좌측 그림판 화살표 영역 */
+        .top-left-back {
+            position: absolute;
+            top: 35px;
+            left: 45px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            mix-blend-mode: multiply;
+            transition: transform 0.1s ease-out, opacity 0.1s;
+        }
+
+        .top-left-back:hover { 
+            transform: translateX(-5px); 
+            opacity: 0.8; 
+        }
+
+        /* 그림판 기본 화살표 스타일 (밝은 파스텔 채움 + 가장 얇은 테두리 1px) */
+        .mspaint-arrow {
+            width: 50px;
+            height: 30px;
+            fill: #7DE2D1; /* 밝고 산뜻한 파스텔 민트 계열 */
+            stroke: #000000;
+            stroke-width: 1px; /* 가장 얇은 굵기 */
+            stroke-linejoin: round;
+        }
+
+        .select-container { 
+            flex: 1; display: flex; flex-direction: column; 
+            align-items: center; justify-content: center; 
+            width: 100%;
+        }
+
+        /* 메인 화면 portfolio처럼 글자마다 다양한 색상과 그림자가 들어가는 링크 */
+        .sound-link {
+            width: 45vw;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            mix-blend-mode: multiply;
+            transition: transform 0.1s ease-out;
+            font-size: 10vw; 
+            font-weight: 900; 
+            margin: 6px 0; 
+            cursor: pointer; 
+            line-height: 0.85;
+        }
+
+        .sound-link:hover { transform: translateY(-5px); opacity: 0.8; }
+
+        /* 글자 단위 글리치 스타일 (PORTFOLIO와 동일한 방식 적용) */
+        .char {
+            font-size: 10vw;
+            font-weight: 900;
+            line-height: 0.85;
+            text-shadow: 2px 0 #FF71A7, -2px 0 #36BAFF;
+            display: inline-block;
+        }
+
+        /* 밝은 파스텔톤 컬러 패턴 */
+        .c1 { color: #FF71A7; } .c2 { color: #36BAFF; } 
+        .c3 { color: #FFE86E; } .c4 { color: #7DE2D1; } 
+        .c5 { color: #FF9F1C; } .c6 { color: #BB6BD9; } 
+        .c7 { color: #27AE60; } .c8 { color: #F783AC; }
+
+        footer { padding: 50px 20px; text-align: center; font-size: 0.9rem; font-weight: 900; }
+        .sns-links a, .sns-links .email-text { 
+            margin: 0 20px; color: #000; text-decoration: none; 
+            font-weight: 900; font-family: 'Times New Roman', serif;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 상단 좌측 그림판 스타일 화살표 (얇은 테두리 + 밝은 파스텔톤) -->
+    <a href="year_select.html" class="top-left-back" title="BACK TO MAIN">
+        <svg class="mspaint-arrow" viewBox="0 0 100 60">
+            <polygon points="100,20 40,20 40,0 0,30 40,60 40,40 100,40" />
+        </svg>
+    </a>
+
+    <div class="select-container">
+        <!-- 1단계 사운드 워크 링크 (PORTFOLIO처럼 글자마다 다양한 파스텔 색상 적용) -->
+        <a href="test_01.html" class="sound-link">
+            <span class="char c1">L</span>
+            <span class="char c2">A</span>
+            <span class="char c3">Y</span>
+            <span class="char c4">E</span>
+            <span class="char c5">R</span>
+            <span class="char c6">0</span>
+            <span class="char c7">1</span>
+        </a>
+    </div>
+
+    <footer>
+        <div class="sns-links">
+            <a href="https://www.youtube.com/@goat_on_the_boat" target="_blank">YOUTUBE</a>
+            <a href="https://www.instagram.com/goatontheboat_kr/" target="_blank">INSTAGRAM</a>
+            <span class="email-text">EMAIL: dldbwls980112@gmail.com</span>
+        </div>
+    </footer>
+
+</body>
+</html>
