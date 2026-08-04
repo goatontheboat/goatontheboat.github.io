@@ -109,6 +109,23 @@
             font-weight: 800;
         }
 
+        /* 타임라인 및 시간 표시 스타일 추가 */
+        .timeline-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .timeline-container input[type="range"] {
+            flex-grow: 1;
+            accent-color: #000;
+            cursor: pointer;
+            height: 6px;
+        }
+
         .controls {
             display: flex;
             flex-wrap: wrap;
@@ -222,7 +239,12 @@
             <!-- Track 1 -->
             <div class="sound-item" id="track-1">
                 <h3>01. OCEAN WAVES</h3>
-                <audio id="audio-1" src="audio/ocean.mp3"></audio>
+                <audio id="audio-1" src="audio_ocean.mp3" preload="metadata"></audio>
+                <div class="timeline-container">
+                    <span id="current-time-1">00:00</span>
+                    <input type="range" id="seek-bar-1" value="0" max="100" step="0.1" oninput="seekAudio(1, this.value)" onchange="seekAudio(1, this.value)">
+                    <span id="duration-1">00:00</span>
+                </div>
                 <div class="controls">
                     <button class="icon-btn" onclick="playAudio(1)" title="재생">
                         <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
@@ -246,7 +268,12 @@
             <!-- Track 2 -->
             <div class="sound-item" id="track-2">
                 <h3>02. WINDS</h3>
-                <audio id="audio-2" src="audio/wind.mp3"></audio>
+                <audio id="audio-2" src="audio_wind.mp3" preload="metadata"></audio>
+                <div class="timeline-container">
+                    <span id="current-time-2">00:00</span>
+                    <input type="range" id="seek-bar-2" value="0" max="100" step="0.1" oninput="seekAudio(2, this.value)" onchange="seekAudio(2, this.value)">
+                    <span id="duration-2">00:00</span>
+                </div>
                 <div class="controls">
                     <button class="icon-btn" onclick="playAudio(2)" title="재생">
                         <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
@@ -270,7 +297,12 @@
             <!-- Track 3 -->
             <div class="sound-item" id="track-3">
                 <h3>03. RAIN FOREST</h3>
-                <audio id="audio-3" src="audio/rain.mp3"></audio>
+                <audio id="audio-3" src="audio_rain.mp3" preload="metadata"></audio>
+                <div class="timeline-container">
+                    <span id="current-time-3">00:00</span>
+                    <input type="range" id="seek-bar-3" value="0" max="100" step="0.1" oninput="seekAudio(3, this.value)" onchange="seekAudio(3, this.value)">
+                    <span id="duration-3">00:00</span>
+                </div>
                 <div class="controls">
                     <button class="icon-btn" onclick="playAudio(3)" title="재생">
                         <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
@@ -294,7 +326,12 @@
             <!-- Track 4 -->
             <div class="sound-item" id="track-4">
                 <h3>04. GRASS</h3>
-                <audio id="audio-4" src="audio/grass.mp3"></audio>
+                <audio id="audio-4" src="audio_grass.mp3" preload="metadata"></audio>
+                <div class="timeline-container">
+                    <span id="current-time-4">00:00</span>
+                    <input type="range" id="seek-bar-4" value="0" max="100" step="0.1" oninput="seekAudio(4, this.value)" onchange="seekAudio(4, this.value)">
+                    <span id="duration-4">00:00</span>
+                </div>
                 <div class="controls">
                     <button class="icon-btn" onclick="playAudio(4)" title="재생">
                         <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
@@ -327,9 +364,42 @@
     </footer>
 
     <script>
+        // 오디오 메타데이터 로드 시 전체 시간 표시 및 재생바 설정
+        for (let i = 1; i <= 4; i++) {
+            const audio = document.getElementById(`audio-${i}`);
+            const seekBar = document.getElementById(`seek-bar-${i}`);
+            const durationLabel = document.getElementById(`duration-${i}`);
+            const currentTimeLabel = document.getElementById(`current-time-${i}`);
+
+            audio.addEventListener('loadedmetadata', () => {
+                durationLabel.textContent = formatTime(audio.duration);
+                seekBar.max = audio.duration;
+            });
+
+            audio.addEventListener('timeupdate', () => {
+                seekBar.value = audio.currentTime;
+                currentTimeLabel.textContent = formatTime(audio.currentTime);
+            });
+
+            audio.addEventListener('ended', () => {
+                if (!audio.loop) {
+                    audio.currentTime = 0;
+                }
+            });
+        }
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+        }
+
         function playAudio(trackNum) {
             const audio = document.getElementById(`audio-${trackNum}`);
-            audio.play();
+            audio.play().catch(error => {
+                console.error("오디오 재생 오류 (파일 경로를 확인하세요):", error);
+                alert("오디오 파일을 재생할 수 없습니다. 경로를 확인해주세요.");
+            });
         }
 
         function pauseAudio(trackNum) {
@@ -340,7 +410,14 @@
         function replayAudio(trackNum) {
             const audio = document.getElementById(`audio-${trackNum}`);
             audio.currentTime = 0;
-            audio.play();
+            audio.play().catch(error => {
+                console.error("오디오 재생 오류:", error);
+            });
+        }
+
+        function seekAudio(trackNum, value) {
+            const audio = document.getElementById(`audio-${trackNum}`);
+            audio.currentTime = value;
         }
 
         function toggleLoop(trackNum) {
