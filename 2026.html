@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <title>2026_OPERATIONAL_SYSTEM</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         body { 
             background: #fff; 
             color: #000; 
-            font-family: 'Times New Roman', serif; 
+            font-family: 'Nanum Myeongjo', 'NanumMyeongjo', serif; 
             padding: 40px; 
             position: relative;
-            font-weight: 900;
+            font-weight: 700;
+            line-height: 1.8;
+            word-break: keep-all;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* 상단 좌측 그림판 스타일 화살표 (메인 복귀) */
@@ -48,7 +53,7 @@
             margin-top: 60px; 
         }
 
-        /* 2026 메인 글리치 타이틀 스타일 */
+        /* 2026 메인 글리치 타이틀 스타일 (최상단 유지) */
         .glitch-title {
             display: flex;
             text-decoration: none;
@@ -64,6 +69,7 @@
             line-height: 1;
             text-shadow: 3px 0 #FF71A7, -3px 0 #36BAFF;
             display: inline-block;
+            font-family: 'Times New Roman', serif;
         }
 
         /* 2026년용 다채로운 글리치 색상 조합 */
@@ -74,38 +80,40 @@
 
         .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
         .card { border: 3px solid #000; padding: 30px; background: #fff; margin-bottom: 30px; }
-        h2 { font-size: 1.2rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; font-weight: 900; }
+        h2 { font-size: 1.2rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; font-family: 'Nanum Myeongjo', 'NanumMyeongjo', serif; }
         
         .featured-card { border: 5px solid #000; padding: 30px; margin-bottom: 30px; }
         .featured-card h2 { color: #000; border-left: 15px solid #000; padding-left: 15px; }
         
-        .impact-score { font-size: 4rem; font-weight: 900; color: #36BAFF; text-shadow: 3px 0 #FFE86E; }
+        .impact-score { font-size: 4rem; font-weight: 800; color: #36BAFF; text-shadow: 3px 0 #FFE86E; font-family: 'Nanum Myeongjo', 'NanumMyeongjo', serif; }
         
         .main-video { width: 100%; height: 500px; border: 3px solid #000; margin-top: 15px; background: #000; }
         iframe { width: 100%; height: 250px; border: 3px solid #000; margin-top: 15px; }
         
         .month-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 15px; }
-        .month-btn { background: #000; color: #fff; text-decoration: none; padding: 15px; text-align: center; font-weight: bold; }
+        .month-btn { background: #000; color: #fff; text-decoration: none; padding: 15px; text-align: center; font-weight: 700; font-family: 'Nanum Myeongjo', 'NanumMyeongjo', serif; }
         .month-btn:hover { background: #36BAFF; color: #000; }
         
         .content-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        .content-table th, .content-table td { border: 1px solid #000; padding: 12px; text-align: left; font-size: 0.9rem; font-weight: 900; }
-        .content-table th { background: #000; color: #fff; }
+        .content-table th, .content-table td { border: 1px solid #000; padding: 12px; text-align: left; font-size: 0.95rem; font-weight: 700; font-family: 'Nanum Myeongjo', 'NanumMyeongjo', serif; }
+        .content-table th { background: #000; color: #fff; font-weight: 800; }
 
         canvas { width: 100% !important; height: 300px !important; margin-top: 15px; }
         
-        footer { margin-top: 50px; text-align: center; border-top: 3px solid #000; padding-top: 30px; font-weight: 900; }
-        .sns-links a { margin: 0 20px; color: #000; text-decoration: none; font-weight: 900; mix-blend-mode: multiply; }
+        footer { margin-top: 50px; text-align: center; border-top: 3px solid #000; padding-top: 30px; font-weight: 700; font-family: 'Nanum Myeongjo', 'NanumMyeongjo', serif; }
+        .sns-links { margin-bottom: 15px; }
+        .sns-links a { margin: 0 15px; color: #000; text-decoration: none; font-weight: 700; mix-blend-mode: multiply; font-family: 'Nanum Myeongjo', 'NanumMyeongjo', serif; }
         .sns-links a:hover { color: #FF71A7; opacity: 0.8; }
 
         .event-note { 
-            font-weight: 900; 
+            font-weight: 700; 
             font-size: 1.1rem; 
             padding: 20px; 
             border: 3px solid #000; 
             margin-bottom: 30px; 
             background-color: #f9f9f9; 
             line-height: 1.8; 
+            font-family: 'Nanum Myeongjo', 'NanumMyeongjo', serif;
         }
 
         /* 2026 시스템 컨셉 포트폴리오 스타일 */
@@ -128,8 +136,6 @@
             font-family: 'Times New Roman', serif;
             font-size: 5vw;
             font-weight: 900;
-            color: #36BAFF; 
-            text-shadow: 3px 0 #FFE86E, -3px 0 #000; 
             text-transform: uppercase;
             display: inline-block;
             transform: scaleX(1.8); 
@@ -138,13 +144,17 @@
             transition: all 0.2s ease;
         }
 
+        /* VIEW PORTFOLIO 다채로운 글리치 컬러 패턴 적용 */
+        .glitch-text .pc1 { color: #36BAFF; text-shadow: 3px 0 #FF71A7, -3px 0 #FFE86E; }
+        .glitch-text .pc2 { color: #FF71A7; text-shadow: 3px 0 #FFE86E, -3px 0 #36BAFF; }
+        .glitch-text .pc3 { color: #FFE86E; text-shadow: 3px 0 #7DE2D1, -3px 0 #FF71A7; }
+        .glitch-text .pc4 { color: #7DE2D1; text-shadow: 3px 0 #36BAFF, -3px 0 #FFE86E; }
+
         .portfolio-glitch-link:hover {
             border-color: #36BAFF;
         }
 
         .portfolio-glitch-link:hover .glitch-text {
-            color: #36BAFF; 
-            text-shadow: 5px 0 #FFE86E, -5px 0 #FF6B6B;
             transform: scaleX(2.0) skewX(-5deg); 
         }
     </style>
@@ -158,7 +168,7 @@
         </svg>
     </a>
 
-    <!-- 화살표 아래로 내려온 큼직한 글리치 타이틀 -->
+    <!-- 화살표 아래로 내려온 헤더 영역 -->
     <div class="header">
         <h1 class="glitch-title">
             <span class="char c1">2</span>
@@ -222,7 +232,7 @@
         </div>
         <div class="card">
             <h2>SYSTEM PERFORMANCE</h2>
-            <ul style="list-style: none; padding: 0; font-weight: bold; line-height: 1.8;">
+            <ul style="list-style: none; padding: 0; font-weight: 700; line-height: 1.8; font-family: 'Nanum Myeongjo', 'NanumMyeongjo', serif;">
                 <li>WATCH TIME: 209.6H</li>
                 <li>AVG. RETENTION: 0:27</li>
                 <li>PLATFORM: YOUTUBE</li>
@@ -231,9 +241,11 @@
     </div>
 
     <div class="system-portfolio-area">
-        <h2 style="text-align: left; margin-bottom: 10px;">SYSTEM_AUTHOR_PORTFOLIO</h2>
         <a href="portfolio.html" class="portfolio-glitch-link">
-            <span class="glitch-text">VIEW PORTFOLIO</span>
+            <span class="glitch-text">
+                <span class="pc1">V</span><span class="pc2">I</span><span class="pc3">E</span><span class="pc4">W</span> 
+                <span class="pc1">P</span><span class="pc2">O</span><span class="pc3">R</span><span class="pc4">T</span><span class="pc1">F</span><span class="pc2">O</span><span class="pc3">L</span><span class="pc4">I</span><span class="pc1">O</span>
+            </span>
         </a>
     </div>
 
@@ -259,6 +271,7 @@
         <div class="sns-links">
             <a href="https://www.youtube.com/@goat_on_the_boat" target="_blank">YOUTUBE</a>
             <a href="https://www.instagram.com/goatontheboat_kr/" target="_blank">INSTAGRAM</a>
+            <a href="mailto:dldbwls980112@gmail.com">E-MAIL</a>
         </div>
     </footer>
 
