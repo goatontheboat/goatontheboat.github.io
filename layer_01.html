@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>PORTFOLIO_SYSTEM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            background: #fff; 
+            color: #000; 
+            font-family: 'Nanum Myeongjo', 'NanumMyeongjo', serif; 
+            padding: 40px; 
+            position: relative;
+            font-weight: 700;
+            line-height: 1.8;
+            word-break: keep-all;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* 상단 좌측 그림판 스타일 화살표 (포트폴리오 메인 복귀) */
+        .top-left-back {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            mix-blend-mode: multiply;
+            transition: transform 0.1s ease-out, opacity 0.1s;
+        }
+
+        .top-left-back:hover { 
+            transform: translateX(-5px); 
+            opacity: 0.8; 
+        }
+
+        .mspaint-arrow {
+            width: 50px;
+            height: 30px;
+            fill: #7DE2D1; 
+            stroke: #000000;
+            stroke-width: 1px; 
+            stroke-linejoin: round;
+        }
+
+        /* 헤더 영역 */
+        .header { 
+            border-bottom: 3px solid #000; 
+            padding-bottom: 25px; 
+            margin-bottom: 40px; 
+            margin-top: 60px; 
+        }
+
+        .glitch-title {
+            display: flex;
+            text-decoration: none;
+            mix-blend-mode: multiply;
+            margin: 0;
+            line-height: 1;
+            gap: 15px;
+        }
+
+        .char {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1;
+            text-shadow: 3px 0 #FF71A7, -3px 0 #36BAFF;
+            display: inline-block;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .c1 { color: #36BAFF; text-shadow: 3px 0 #FF71A7; }
+        .c2 { color: #FF71A7; text-shadow: 3px 0 #FFE86E; }
+        .c3 { color: #FFE86E; text-shadow: 3px 0 #7DE2D1; }
+        .c4 { color: #7DE2D1; text-shadow: 3px 0 #36BAFF; }
+
+        .card { 
+            border: 3px solid #000; 
+            padding: 30px; 
+            background: #fff; 
+            margin-bottom: 30px; 
+        }
+
+        h2 { 
+            font-size: 1.2rem; 
+            margin-bottom: 15px; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            font-weight: 800; 
+            font-family: 'Nanum Myeongjo', 'NanumMyeongjo', serif; 
+        }
+
+        .sound-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .sound-item {
+            border: 2px solid #000;
+            padding: 20px;
+            background: #fdfdfd;
+        }
+
+        .sound-item h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        /* 아이튠즈 스타일 미니멀 버튼 및 아이콘 */
+        .icon-btn {
+            background: transparent;
+            border: 2px solid #000;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.1s;
+            padding: 0;
+        }
+
+        .icon-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: #000;
+        }
+
+        .icon-btn:hover {
+            background: #36BAFF;
+            border-color: #000;
+        }
+
+        .icon-btn:hover svg {
+            fill: #000;
+        }
+
+        .icon-btn.active {
+            background: #FF71A7;
+            border-color: #000;
+        }
+
+        .icon-btn.active svg {
+            fill: #000;
+        }
+
+        .volume-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+            font-size: 0.9rem;
+        }
+
+        .volume-container input[type="range"] {
+            accent-color: #000;
+            cursor: pointer;
+        }
+
+        footer { 
+            margin-top: 50px; 
+            text-align: center; 
+            border-top: 3px solid #000; 
+            padding-top: 30px; 
+            font-weight: 700; 
+            font-family: 'Nanum Myeongjo', 'NanumMyeongjo', serif; 
+        }
+
+        .sns-links { margin-bottom: 15px; }
+        .sns-links a { 
+            margin: 0 15px; 
+            color: #000; 
+            text-decoration: none; 
+            font-weight: 700; 
+            mix-blend-mode: multiply; 
+            font-family: 'Nanum Myeongjo', 'NanumMyeongjo', serif; 
+        }
+        .sns-links a:hover { color: #FF71A7; opacity: 0.8; }
+    </style>
+</head>
+<body>
+
+    <!-- 상단 좌측 그림판 스타일 화살표 (SOUND WORK가 있는 포트폴리오 메인으로 복귀) -->
+    <a href="portfolio.html" class="top-left-back" title="BACK TO PORTFOLIO">
+        <svg class="mspaint-arrow" viewBox="0 0 100 60">
+            <polygon points="100,20 40,20 40,0 0,30 40,60 40,40 100,40" />
+        </svg>
+    </a>
+
+    <!-- 헤더 영역 -->
+    <div class="header">
+        <h1 class="glitch-title">
+            <span class="char c1">L</span>
+            <span class="char c2">A</span>
+            <span class="char c3">Y</span>
+            <span class="char c4">E</span>
+            <span class="char c1" style="margin-left: -5px;">R</span>
+            <span class="char c2" style="margin-left: 5px;">0</span>
+            <span class="char c3" style="margin-left: 5px;">1</span>
+        </h1>
+    </div>
+
+    <div class="card">
+        <h2>SOUND WORK - LAYER 01</h2>
+        <p style="font-size: 0.95rem; font-weight: 700; margin-bottom: 25px; line-height: 1.8;">
+            본 작업은 통상적인 음반 제작 기법인 '섬밍(Summing)' 과정을 가장 기본적인 형태로 해체하여, 청취자에게 개별 레이어 재생 및 조정의 선택권 제공을 목표로 한다.
+        </p>
+
+        <div class="sound-grid">
+            
+            <!-- Track 1 -->
+            <div class="sound-item" id="track-1">
+                <h3>01. OCEAN WAVES</h3>
+                <audio id="audio-1" src="audio/ocean.mp3"></audio>
+                <div class="controls">
+                    <button class="icon-btn" onclick="playAudio(1)" title="재생">
+                        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+                    </button>
+                    <button class="icon-btn" onclick="pauseAudio(1)" title="정지">
+                        <svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14"/></svg>
+                    </button>
+                    <button class="icon-btn" onclick="replayAudio(1)" title="다시 재생">
+                        <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+                    </button>
+                    <button id="loop-btn-1" class="icon-btn" onclick="toggleLoop(1)" title="반복 재생: OFF">
+                        <svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
+                    </button>
+                    <div class="volume-container">
+                        <span>볼륨</span>
+                        <input type="range" min="0" max="1" step="0.05" value="1" onchange="setVolume(1, this.value)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Track 2 -->
+            <div class="sound-item" id="track-2">
+                <h3>02. WINDS</h3>
+                <audio id="audio-2" src="audio/wind.mp3"></audio>
+                <div class="controls">
+                    <button class="icon-btn" onclick="playAudio(2)" title="재생">
+                        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+                    </button>
+                    <button class="icon-btn" onclick="pauseAudio(2)" title="정지">
+                        <svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14"/></svg>
+                    </button>
+                    <button class="icon-btn" onclick="replayAudio(2)" title="다시 재생">
+                        <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+                    </button>
+                    <button id="loop-btn-2" class="icon-btn" onclick="toggleLoop(2)" title="반복 재생: OFF">
+                        <svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
+                    </button>
+                    <div class="volume-container">
+                        <span>볼륨</span>
+                        <input type="range" min="0" max="1" step="0.05" value="1" onchange="setVolume(2, this.value)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Track 3 -->
+            <div class="sound-item" id="track-3">
+                <h3>03. RAIN FOREST</h3>
+                <audio id="audio-3" src="audio/rain.mp3"></audio>
+                <div class="controls">
+                    <button class="icon-btn" onclick="playAudio(3)" title="재생">
+                        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+                    </button>
+                    <button class="icon-btn" onclick="pauseAudio(3)" title="정지">
+                        <svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14"/></svg>
+                    </button>
+                    <button class="icon-btn" onclick="replayAudio(3)" title="다시 재생">
+                        <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+                    </button>
+                    <button id="loop-btn-3" class="icon-btn" onclick="toggleLoop(3)" title="반복 재생: OFF">
+                        <svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
+                    </button>
+                    <div class="volume-container">
+                        <span>볼륨</span>
+                        <input type="range" min="0" max="1" step="0.05" value="1" onchange="setVolume(3, this.value)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Track 4 -->
+            <div class="sound-item" id="track-4">
+                <h3>04. GRASS</h3>
+                <audio id="audio-4" src="audio/grass.mp3"></audio>
+                <div class="controls">
+                    <button class="icon-btn" onclick="playAudio(4)" title="재생">
+                        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+                    </button>
+                    <button class="icon-btn" onclick="pauseAudio(4)" title="정지">
+                        <svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14"/></svg>
+                    </button>
+                    <button class="icon-btn" onclick="replayAudio(4)" title="다시 재생">
+                        <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+                    </button>
+                    <button id="loop-btn-4" class="icon-btn" onclick="toggleLoop(4)" title="반복 재생: OFF">
+                        <svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
+                    </button>
+                    <div class="volume-container">
+                        <span>볼륨</span>
+                        <input type="range" min="0" max="1" step="0.05" value="1" onchange="setVolume(4, this.value)">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="sns-links">
+            <a href="https://www.youtube.com/@goat_on_the_boat" target="_blank">YOUTUBE</a>
+            <a href="https://www.instagram.com/goatontheboat_kr/" target="_blank">INSTAGRAM</a>
+            <span class="email-text">EMAIL: dldbwls980112@gmail.com</span>
+        </div>
+    </footer>
+
+    <script>
+        function playAudio(trackNum) {
+            const audio = document.getElementById(`audio-${trackNum}`);
+            audio.play();
+        }
+
+        function pauseAudio(trackNum) {
+            const audio = document.getElementById(`audio-${trackNum}`);
+            audio.pause();
+        }
+
+        function replayAudio(trackNum) {
+            const audio = document.getElementById(`audio-${trackNum}`);
+            audio.currentTime = 0;
+            audio.play();
+        }
+
+        function toggleLoop(trackNum) {
+            const audio = document.getElementById(`audio-${trackNum}`);
+            const btn = document.getElementById(`loop-btn-${trackNum}`);
+            audio.loop = !audio.loop;
+            if (audio.loop) {
+                btn.title = "반복 재생: ON";
+                btn.classList.add("active");
+            } else {
+                btn.title = "반복 재생: OFF";
+                btn.classList.remove("active");
+            }
+        }
+
+        function setVolume(trackNum, volumeValue) {
+            const audio = document.getElementById(`audio-${trackNum}`);
+            audio.volume = volumeValue;
+        }
+    </script>
+</body>
+</html>
