@@ -239,7 +239,7 @@
             <!-- Track 1 -->
             <div class="sound-item" id="track-1">
                 <h3>01. OCEAN WAVES</h3>
-                <audio id="audio-1" src="audio_ocean.mp3" preload="metadata"></audio>
+                <audio id="audio-1" src="audio_ocean.mp3" preload="auto"></audio>
                 <div class="timeline-container">
                     <span id="current-time-1">00:00</span>
                     <input type="range" id="seek-bar-1" value="0" max="100" step="0.1" oninput="seekAudio(1, this.value)" onchange="seekAudio(1, this.value)">
@@ -268,7 +268,7 @@
             <!-- Track 2 -->
             <div class="sound-item" id="track-2">
                 <h3>02. WINDS</h3>
-                <audio id="audio-2" src="audio_wind.mp3" preload="metadata"></audio>
+                <audio id="audio-2" src="audio_wind.mp3" preload="auto"></audio>
                 <div class="timeline-container">
                     <span id="current-time-2">00:00</span>
                     <input type="range" id="seek-bar-2" value="0" max="100" step="0.1" oninput="seekAudio(2, this.value)" onchange="seekAudio(2, this.value)">
@@ -297,7 +297,7 @@
             <!-- Track 3 -->
             <div class="sound-item" id="track-3">
                 <h3>03. RAIN FOREST</h3>
-                <audio id="audio-3" src="audio_rain.mp3" preload="metadata"></audio>
+                <audio id="audio-3" src="audio_rain.mp3" preload="auto"></audio>
                 <div class="timeline-container">
                     <span id="current-time-3">00:00</span>
                     <input type="range" id="seek-bar-3" value="0" max="100" step="0.1" oninput="seekAudio(3, this.value)" onchange="seekAudio(3, this.value)">
@@ -326,7 +326,7 @@
             <!-- Track 4 -->
             <div class="sound-item" id="track-4">
                 <h3>04. GRASS</h3>
-                <audio id="audio-4" src="audio_grass.mp3" preload="metadata"></audio>
+                <audio id="audio-4" src="audio_grass.mp3" preload="auto"></audio>
                 <div class="timeline-container">
                     <span id="current-time-4">00:00</span>
                     <input type="range" id="seek-bar-4" value="0" max="100" step="0.1" oninput="seekAudio(4, this.value)" onchange="seekAudio(4, this.value)">
@@ -364,21 +364,33 @@
     </footer>
 
     <script>
-        // 오디오 메타데이터 로드 시 전체 시간 표시 및 재생바 설정
-        for (let i = 1; i <= 4; i++) {
+        // 오디오 초기화 및 시간 표시 바 동기화 함수
+        function initAudio(i) {
             const audio = document.getElementById(`audio-${i}`);
             const seekBar = document.getElementById(`seek-bar-${i}`);
             const durationLabel = document.getElementById(`duration-${i}`);
             const currentTimeLabel = document.getElementById(`current-time-${i}`);
 
-            audio.addEventListener('loadedmetadata', () => {
-                durationLabel.textContent = formatTime(audio.duration);
-                seekBar.max = audio.duration;
-            });
+            function updateMetadata() {
+                if (!isNaN(audio.duration)) {
+                    durationLabel.textContent = formatTime(audio.duration);
+                    seekBar.max = audio.duration;
+                }
+            }
+
+            // 이미 메타데이터를 로드한 경우 처리
+            if (audio.readyState >= 1) {
+                updateMetadata();
+            }
+
+            audio.addEventListener('loadedmetadata', updateMetadata);
+            audio.addEventListener('durationchange', updateMetadata);
 
             audio.addEventListener('timeupdate', () => {
-                seekBar.value = audio.currentTime;
-                currentTimeLabel.textContent = formatTime(audio.currentTime);
+                if (!isNaN(audio.currentTime)) {
+                    seekBar.value = audio.currentTime;
+                    currentTimeLabel.textContent = formatTime(audio.currentTime);
+                }
             });
 
             audio.addEventListener('ended', () => {
@@ -386,6 +398,13 @@
                     audio.currentTime = 0;
                 }
             });
+
+            // 브라우저 캐시 및 로딩 문제 방지용 강제 로드
+            audio.load();
+        }
+
+        for (let i = 1; i <= 4; i++) {
+            initAudio(i);
         }
 
         function formatTime(seconds) {
